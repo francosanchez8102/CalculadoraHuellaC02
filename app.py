@@ -64,7 +64,7 @@ if submitted:
     impacto_arboles = obtener_impacto_arboles(huella)
     impacto_ejemplos = obtener_impacto_ejemplos(huella)
 
-    st.write("Esto equivale a la emisión de CO2 de aproximadamente", int(impacto_arboles), "árboles.")
+    st.write("Esto equivale a la absorción de CO2 de aproximadamente", int(impacto_arboles), "árboles.")
 
     st.write("Ejemplos del impacto de la huella de carbono:")
     for ejemplo, mensaje in obtener_impacto_ejemplos(huella).items():
