@@ -30,15 +30,16 @@ def obtener_impacto_ejemplos():
     }
     return impacto
 
+
+
 def obtener_compensacion_ejemplos(huella):
-    arboles_necesarios = obtener_impacto_arboles(huella)
-    compensacion = {
-        "Plantación de árboles": "Se requiere plantar aproximadamente {} árboles.".format(int(arboles_necesarios)),
-        "Energías renovables": "Apoyar proyectos de energía renovable y utilizar fuentes de energía limpias.",
-        "Eficiencia energética": "Mejorar la eficiencia energética en tus actividades diarias.",
-        "Transporte sostenible": "Utilizar medios de transporte sostenibles y optar por vehículos eléctricos o híbridos.",
-        "Compensación de carbono": "Participar en programas y proyectos de compensación de carbono."
-    }
+    compensacion = ["Reducir el consumo de carne y productos lácteos.",
+                    "Optar por fuentes de energía renovable.",
+                    "Utilizar el transporte público, bicicleta o caminar en lugar de utilizar vehículos particulares.",
+                    "Reducir el consumo de agua.",
+                    "Reducir el consumo de electricidad optando por lámparas de bajo consumo o adquiriendo electrodomésticos de bajo consumo.",
+                    "Reducir la cantidad de residuos generados, reutilizando envases y reciclando materiales como latas de aluminio, papel, cartón y vidrios."
+    ]
     return compensacion
 
 st.title("Calculadora Huella de Carbono :earth_americas:")
@@ -66,11 +67,13 @@ with st.form("my_form"):
     huella = calcula_huella(km_auto_gas, km_auto_die, km_auto_elec, km_auto_gnc, km_moto_gas, km_camion_liviano_die, km_colect_gas)
 
 if submitted:
-    st.write("Tu huella de carbono es:", huella)
+    st.write(f"Tu huella de carbono es: :red[{round(huella,1)}]")
     impacto_arboles = obtener_impacto_arboles(huella)
 
-    st.write("Esto equivale a la absorción de CO2 de aproximadamente", int(impacto_arboles), "árboles.")
+    st.write(f"Esto equivale a la absorción de CO2 de aproximadamente :red[{round(impacto_arboles,1)}] árboles.")
 
-    st.write("Este impacto de la huella de carbono se podría compensar con:")
-    for ejemplo, mensaje in obtener_compensacion_ejemplos(huella).items():
-        st.write(f"- {ejemplo}: {mensaje}")
+    st.write("**:blue[Algunas de las opciones que puedes considerar para bajar tu huella de carbono pueden ser:]**")
+    for mensaje in obtener_compensacion_ejemplos(huella):
+       st.write(f"- {mensaje}")
+    
+    st.write("**:green[Recuerda que cada pequeña acción cuenta, y juntos podemos hacer la diferencia para reducir nuestra huella de carbono y contribuir a un futuro más sostenible.]**")
