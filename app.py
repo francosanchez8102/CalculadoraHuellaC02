@@ -1,5 +1,4 @@
 import streamlit as st
-import pandas as pd
 from constantes import FACTORES
 
 lista_factores = FACTORES
@@ -22,9 +21,9 @@ def obtener_impacto_arboles(huella):
     arboles_necesarios = huella / 1000 * arboles_por_tonelada # Convertir huella a toneladas
     return arboles_necesarios
 
-def obtener_impacto_ejemplos(huella):
+def obtener_impacto_ejemplos():
     impacto = {
-        "Efecto en el cambio climático": "La huella de carbono generada contribuye al cambio climático, aumentando la temperatura promedio del planeta.",
+        "Impacto en el cambio climático": "La huella de carbono generada contribuye al cambio climático, aumentando la temperatura promedio del planeta.",
         "Contaminación del aire": "Las emisiones de carbono también se asocian con la contaminación del aire y problemas de salud, como enfermedades respiratorias.",
         "Escasez de recursos naturales": "El aumento de las emisiones de carbono puede agotar los recursos naturales, como el agua y los combustibles fósiles.",
         "Degradación del ecosistema": "La emisión de carbono puede afectar negativamente a los ecosistemas, provocando la pérdida de biodiversidad y daños a los hábitats naturales."
@@ -43,8 +42,15 @@ def obtener_compensacion_ejemplos(huella):
     return compensacion
 
 st.title("Calculadora Huella de Carbono :earth_americas:")
-st.write("Ingresa tus datos de consumo")
 
+# Efecto de la huella de carbono en el medio ambiente
+st.subheader("**:blue[¿Cómo afecta la Huella de Carbono al medio ambiente?]**")
+
+for ejemplo, mensaje in obtener_impacto_ejemplos().items():
+    st.write(f"- **{ejemplo}:** {mensaje}")
+
+# Formulario
+st.subheader("**:blue[Ingresa tus datos de consumo]**")
 with st.form("my_form"):
     km_auto_gas = st.number_input("KM en automóvil gasoil", min_value=0)
     km_auto_die = st.number_input("KM en automóvil diesel", min_value=0)
@@ -64,10 +70,6 @@ if submitted:
     impacto_arboles = obtener_impacto_arboles(huella)
 
     st.write("Esto equivale a la absorción de CO2 de aproximadamente", int(impacto_arboles), "árboles.")
-
-    st.write("Ejemplos del impacto de la huella de carbono:")
-    for ejemplo, mensaje in obtener_impacto_ejemplos(huella).items():
-        st.write(f"- {ejemplo}: {mensaje}")
 
     st.write("Este impacto de la huella de carbono se podría compensar con:")
     for ejemplo, mensaje in obtener_compensacion_ejemplos(huella).items():
