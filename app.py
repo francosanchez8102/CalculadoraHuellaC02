@@ -32,7 +32,7 @@ def obtener_impacto_ejemplos():
 
 
 
-def obtener_compensacion_ejemplos(huella):
+def obtener_compensacion_ejemplos():
     compensacion = ["Reducir el consumo de carne y productos lácteos.",
                     "Optar por fuentes de energía renovable.",
                     "Utilizar el transporte público, bicicleta o caminar en lugar de utilizar vehículos particulares.",
@@ -64,7 +64,7 @@ with st.form("my_form"):
     km_subte = st.number_input("KM en Subte", min_value=0)
 
     submitted = st.form_submit_button("Calcular")
-    huella = calcula_huella(km_auto_gas, km_auto_die, km_auto_elec, km_auto_gnc, km_moto_gas, km_camion_liviano_die, km_colect_gas)
+    huella = calcula_huella(km_auto_gas, km_auto_die, km_auto_elec, km_auto_gnc, km_moto_gas, km_camion_liviano_die, km_colect_die, km_colect_gas, km_subte)
 
 if submitted:
     st.write(f"Tu huella de carbono es: :red[{round(huella,1)}]")
@@ -73,7 +73,7 @@ if submitted:
     st.write(f"Esto equivale a la absorción de CO2 de aproximadamente :red[{round(impacto_arboles,1)}] árboles.")
 
     st.write("**:blue[Algunas de las opciones que puedes considerar para bajar tu huella de carbono pueden ser:]**")
-    for mensaje in obtener_compensacion_ejemplos(huella):
+    for mensaje in obtener_compensacion_ejemplos():
        st.write(f"- {mensaje}")
     
     st.write("**:green[Recuerda que cada pequeña acción cuenta, y juntos podemos hacer la diferencia para reducir nuestra huella de carbono y contribuir a un futuro más sostenible.]**")
