@@ -18,7 +18,9 @@ def calcula_huella(*arguments):
 
 def obtener_impacto_arboles(huella):
     arboles_por_tonelada = 3.67 # Cantidad promedio de árboles necesarios para compensar una tonelada de emisiones de CO2
-    arboles_necesarios = huella / 1000 * arboles_por_tonelada # Convertir huella a toneladas
+    arboles_necesarios = (huella / 1000) * arboles_por_tonelada # Convertir huella a toneladas
+    print(huella)
+
     return arboles_necesarios
 
 def obtener_impacto_ejemplos():
@@ -51,26 +53,66 @@ for ejemplo, mensaje in obtener_impacto_ejemplos().items():
     st.write(f"- **{ejemplo}:** {mensaje}")
 
 # Formulario
-st.subheader("**:blue[Ingresa tus datos de consumo]**")
+st.subheader("**:blue[Ingresa tus datos de consumo SEMANALES]**")
 with st.form("my_form"):
-    km_auto_gas = st.number_input("KM en automóvil gasoil", min_value=0)
-    km_auto_die = st.number_input("KM en automóvil diesel", min_value=0)
-    km_auto_elec = st.number_input("KM en automóvil eléctrico", min_value=0)
-    km_auto_gnc = st.number_input("KM en automóvil gnc", min_value=0)
-    km_moto_gas = st.number_input("KM en moto gasoil", min_value=0)
-    km_camion_liviano_die = st.number_input("KM en camión liviano diésel", min_value=0)
-    km_colect_die = st.number_input("KM en colectivo diésel", min_value=0)
-    km_colect_gas = st.number_input("KM en colectivo gasoil", min_value=0)
-    km_subte = st.number_input("KM en Subte", min_value=0)
+
+    with st.expander("Medios de transporte"):
+            # Elementos dentro del expander
+            st.write("En promedio, cuantos km por semana recorres utilizando cada uno de estos medios de transporte?")
+            km_auto = st.number_input("km en automóvil ", min_value=0)
+            km_moto = st.number_input("km en moto gasoil", min_value=0)
+            km_camion_liviano_die = st.number_input("km en camión liviano diésel", min_value=0)
+            km_colect_die = st.number_input("km en colectivo diésel", min_value=0)
+            km_colect_gas = st.number_input("km en colectivo gasoil", min_value=0)
+                    
+    
+    with st.expander("Electrodomesticos"):
+            # Elementos dentro del expander
+            st.write("En promedio, cuantas hs por día utilizas cada uno de estos electrodomésticos? ")
+            hs_tele = st.number_input("Horas televisor", min_value=0)
+            hs_aire = st.number_input("Horas aire acondicionado", min_value=0)
+            hs_ventilador = st.number_input("Horas ventilador", min_value=0)
+            hs_heladera = 24
+            hs_lavarropa = st.number_input("Horas lavarropa", min_value=0)
+            hs_plancha = st.number_input("Horas plancha", min_value=0)
+            hs_horno_elect = st.number_input("Horas horno electrico", min_value=0)
+            hs_microondas = st.number_input("Horas microondas", min_value=0)
+
+        
+    with st.expander("Alimentos"):
+            # Elementos dentro del expander
+            st.write("En promedio, cuanta cantidad en kg comes de cada uno de estos alimentos por semana? ")
+            kg_carne_vaca = st.number_input("Kilogramos carne de vaca", min_value=0)
+            kg_carne_cerdo = st.number_input("Kilogramos carne de cerdo", min_value=0)
+            kg_pollo = st.number_input("Kilogramos de pollo", min_value=0)
+            kg_pescado = st.number_input("Kilogramos de pescado", min_value=0)
+            huevos= st.number_input("Cantidad de huevos", min_value=0)
+            kg_leche = st.number_input("Kilogramos de leche", min_value=0)
+            kg_queso = st.number_input("Kilogramos de queso", min_value=0)
+            kg_arroz = st.number_input("Kilogramos de arroz", min_value=0)
+            kg_pan = st.number_input("Kilogramos de pan", min_value=0)
+            kg_papa = st.number_input("Kilogramos de papa", min_value=0)
 
     submitted = st.form_submit_button("Calcular")
-    huella = calcula_huella(km_auto_gas, km_auto_die, km_auto_elec, km_auto_gnc, km_moto_gas, km_camion_liviano_die, km_colect_die, km_colect_gas, km_subte)
+    huella = calcula_huella(km_auto, km_moto, km_camion_liviano_die, km_colect_die, km_colect_gas,hs_tele,hs_aire,hs_ventilador, hs_heladera,hs_lavarropa,hs_plancha,hs_horno_elect,hs_microondas, kg_carne_vaca, 
+ kg_carne_cerdo,
+ kg_pollo,
+ kg_pescado,
+ huevos,
+ kg_leche,
+ kg_queso,
+ kg_arroz,
+ kg_pan,
+ kg_papa,
+hs_microondas)
+
 
 if submitted:
-    st.write(f"Tu huella de carbono es: :red[{round(huella,1)}]")
+    st.write(f"Tu huella de carbono es: :red[{round(huella,3)}]")
     impacto_arboles = obtener_impacto_arboles(huella)
+    st.write(f"Esto equivale a la absorción de CO2 de aproximadamente :red[{impacto_arboles}] árboles.")
 
-    st.write(f"Esto equivale a la absorción de CO2 de aproximadamente :red[{round(impacto_arboles,1)}] árboles.")
+    #st.write(f"Esto equivale a la absorción de CO2 de aproximadamente :red[{round(impacto_arboles,1)}] árboles.")
 
     st.write("**:blue[Algunas de las opciones que puedes considerar para bajar tu huella de carbono pueden ser:]**")
     for mensaje in obtener_compensacion_ejemplos():
