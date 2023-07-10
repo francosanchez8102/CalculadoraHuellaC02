@@ -94,23 +94,13 @@ with st.form("my_form"):
             kg_papa = st.number_input("Kilogramos de papa", min_value=0)
 
     submitted = st.form_submit_button("Calcular")
-    huella = calcula_huella(km_auto, km_moto, km_camion_liviano_die, km_colect_die, km_colect_gas,hs_tele,hs_aire,hs_ventilador, hs_heladera,hs_lavarropa,hs_plancha,hs_horno_elect,hs_microondas, kg_carne_vaca, 
- kg_carne_cerdo,
- kg_pollo,
- kg_pescado,
- huevos,
- kg_leche,
- kg_queso,
- kg_arroz,
- kg_pan,
- kg_papa,
-hs_microondas)
+    huella = calcula_huella(km_auto, km_moto, km_camion_liviano_die, km_colect_die, km_colect_gas,hs_tele,hs_aire,hs_ventilador, hs_heladera,hs_lavarropa,hs_plancha,hs_horno_elect,hs_microondas, kg_carne_vaca, kg_carne_cerdo, kg_pollo, kg_pescado, huevos, kg_leche, kg_queso, kg_arroz, kg_pan, kg_papa)
 
 
 if submitted:
     st.write(f"Tu huella de carbono es: :red[{round(huella,3)}]")
     impacto_arboles = obtener_impacto_arboles(huella)
-    st.write(f"Esto equivale a la absorción de CO2 de aproximadamente :red[{impacto_arboles}] árboles.")
+    st.write(f"Esto equivale a la absorción de CO2 de aproximadamente :red[{round(impacto_arboles,3)}] árboles.")
 
     #st.write(f"Esto equivale a la absorción de CO2 de aproximadamente :red[{round(impacto_arboles,1)}] árboles.")
 
