@@ -60,10 +60,8 @@ with st.form("my_form"):
             # Elementos dentro del expander
             st.write("En promedio, cuantos km por semana recorres utilizando cada uno de estos medios de transporte?")
             km_auto = st.number_input("km en automóvil ", min_value=0)
-            km_moto = st.number_input("km en moto gasoil", min_value=0)
-            km_camion_liviano_die = st.number_input("km en camión liviano diésel", min_value=0)
-            km_colect_die = st.number_input("km en colectivo diésel", min_value=0)
-            km_colect_gas = st.number_input("km en colectivo gasoil", min_value=0)
+            km_moto = st.number_input("km en moto", min_value=0)
+            km_colect_die = st.number_input("km en colectivo", min_value=0)
                     
     
     with st.expander("Electrodomesticos"):
@@ -94,7 +92,7 @@ with st.form("my_form"):
             kg_papa = st.number_input("Kilogramos de papa", min_value=0)
 
     submitted = st.form_submit_button("Calcular")
-    huella = calcula_huella(km_auto, km_moto, km_camion_liviano_die, km_colect_die, km_colect_gas,hs_tele,hs_aire,hs_ventilador, hs_heladera,hs_lavarropa,hs_plancha,hs_horno_elect,hs_microondas, kg_carne_vaca, kg_carne_cerdo, kg_pollo, kg_pescado, huevos, kg_leche, kg_queso, kg_arroz, kg_pan, kg_papa)
+    huella = calcula_huella(km_auto, km_moto, km_colect_die, hs_tele,hs_aire,hs_ventilador, hs_heladera,hs_lavarropa,hs_plancha,hs_horno_elect,hs_microondas, kg_carne_vaca, kg_carne_cerdo, kg_pollo, kg_pescado, huevos, kg_leche, kg_queso, kg_arroz, kg_pan, kg_papa)
 
 
 if submitted:
