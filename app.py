@@ -96,9 +96,11 @@ with st.form("my_form"):
 
 
 if submitted:
-    st.write(f"Tu huella de carbono es: :red[{round(huella,3)}]")
+    st.write(f"Tu huella de carbono SEMANAL es: :red[{round(huella,3)}] KgCO₂eq")
+    st.write(f"Tu huella de carbono ANUAL es: :red[{round(huella*12,3)}] KgCO₂eq")
+
     impacto_arboles = obtener_impacto_arboles(huella)
-    st.write(f"Esto equivale a la absorción de CO2 de aproximadamente :red[{round(impacto_arboles,3)}] árboles.")
+    st.write(f"Esto equivale a la absorción de CO2 de aproximadamente :red[{round(impacto_arboles*12,3)}] árboles al año.")
 
     #st.write(f"Esto equivale a la absorción de CO2 de aproximadamente :red[{round(impacto_arboles,1)}] árboles.")
 
