@@ -39,11 +39,13 @@ def obtener_compensacion_ejemplos():
                     "Optar por fuentes de energía renovable.",
                     "Utilizar el transporte público, bicicleta o caminar en lugar de utilizar vehículos particulares.",
                     "Reducir el consumo de agua.",
-                    "Reducir el consumo de electricidad optando por lámparas de bajo consumo o adquiriendo electrodomésticos de bajo consumo.",
+                    "Reducir el consumo de electricidad optando por lámparas de bajo consumo o adquiriendo electrodomésticos de mayor eficiencia energética",
                     "Reducir la cantidad de residuos generados, reutilizando envases y reciclando materiales como latas de aluminio, papel, cartón y vidrios."
     ]
     return compensacion
 
+#Se pone logo
+st.set_page_config(layout="centered", page_title="Calculadora Huella de Carbono",page_icon="logo.png")
 st.title("Calculadora Huella de Carbono :earth_americas:")
 
 # Efecto de la huella de carbono en el medio ambiente
