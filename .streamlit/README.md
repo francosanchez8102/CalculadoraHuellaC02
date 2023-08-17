@@ -1,4 +1,4 @@
-#Tema de la Aplicacion
+# Tema de la Aplicacion
 ## Como configurar
 Para configurar el tema solo se debe editar el valor deseado en el archivo
 
