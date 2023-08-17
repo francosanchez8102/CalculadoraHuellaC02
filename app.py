@@ -59,50 +59,48 @@ with st.form("my_form"):
     with st.expander("Medios de transporte"):
             # Elementos dentro del expander
             st.write("En promedio, cuantos km por semana recorres utilizando cada uno de estos medios de transporte?")
-            km_auto = st.number_input("km en automóvil ", min_value=0, format="%.2f")
-            km_moto = st.number_input("km en moto", min_value=0, format="%.2f")
-            km_colect_die = st.number_input("km en colectivo", min_value=0, format="%.2f")
+            km_auto = st.number_input("km en automóvil ", min_value=0.0, format="%.2f")
+            km_moto = st.number_input("km en moto", min_value=0.0, format="%.2f")
+            km_colect_die = st.number_input("km en colectivo", min_value=0.0, format="%.2f")
                     
     
     with st.expander("Electrodomesticos"):
             # Elementos dentro del expander
             st.write("En promedio, cuantas hs por día utilizas cada uno de estos electrodomésticos? ")
-            hs_tele = st.number_input("Horas televisor", min_value=0, format="%.2f")
-            hs_aire = st.number_input("Horas aire acondicionado", min_value=0, format="%.2f")
-            hs_ventilador = st.number_input("Horas ventilador", min_value=0, format="%.2f")
+            hs_tele = st.number_input("Horas televisor", min_value=0.0, format="%.2f")
+            hs_aire = st.number_input("Horas aire acondicionado", min_value=0.0, format="%.2f")
+            hs_ventilador = st.number_input("Horas ventilador", min_value=0.0, format="%.2f")
             hs_heladera = 24
-            hs_lavarropa = st.number_input("Horas lavarropa", min_value=0, format="%.2f")
-            hs_plancha = st.number_input("Horas plancha", min_value=0, format="%.2f")
-            hs_horno_elect = st.number_input("Horas horno electrico", min_value=0, format="%.2f")
-            hs_microondas = st.number_input("Horas microondas", min_value=0, format="%.2f")
+            hs_lavarropa = st.number_input("Horas lavarropa", min_value=0.0, format="%.2f")
+            hs_plancha = st.number_input("Horas plancha", min_value=0.0, format="%.2f")
+            hs_horno_elect = st.number_input("Horas horno electrico", min_value=0.0, format="%.2f")
+            hs_microondas = st.number_input("Horas microondas", min_value=0.0, format="%.2f")
 
         
     with st.expander("Alimentos"):
             # Elementos dentro del expander
             st.write("En promedio, cuanta cantidad en gr/l comes de cada uno de estos alimentos por semana? ")
-            kg_carne_vaca = st.number_input("Gramos de carne de vaca", min_value=0, format="%.2f")
-            kg_carne_cerdo = st.number_input("Gramos de carne de cerdo", min_value=0,format="%.2f")
-            kg_pollo = st.number_input("Gramos de pollo", min_value=0,format="%.2f")
-            kg_pescado = st.number_input("Gramos de pescado", min_value=0,format="%.2f")
-            huevos= st.number_input("Cantidad de huevos", min_value=0,format="%.2f")
-            kg_leche = st.number_input("Litros de leche", min_value=0,format="%.2f")
-            kg_queso = st.number_input("Gramos de queso", min_value=0,format="%.2f")
-            kg_arroz = st.number_input("Gramos de arroz", min_value=0,format="%.2f")
-            kg_pan = st.number_input("Gramos de pan", min_value=0,format="%.2f")
-            kg_papa = st.number_input("Gramos de papa", min_value=0,format="%.2f")
+            kg_carne_vaca = st.number_input("Gramos de carne de vaca", min_value=0)
+            kg_carne_cerdo = st.number_input("Gramos de carne de cerdo", min_value=0)
+            kg_pollo = st.number_input("Gramos de pollo", min_value=0)
+            kg_pescado = st.number_input("Gramos de pescado", min_value=0)
+            huevos= st.number_input("Cantidad de huevos", min_value=0.0,format="%.2f")
+            kg_leche = st.number_input("Litros de leche", min_value=0.0,format="%.2f")
+            kg_queso = st.number_input("Gramos de queso", min_value=0)
+            kg_arroz = st.number_input("Gramos de arroz", min_value=0)
+            kg_pan = st.number_input("Gramos de pan", min_value=0)
+            kg_papa = st.number_input("Gramos de papa", min_value=0)
 
     submitted = st.form_submit_button("Calcular")
     huella = calcula_huella(km_auto, km_moto, km_colect_die, hs_tele,hs_aire,hs_ventilador, hs_heladera,hs_lavarropa,hs_plancha,hs_horno_elect,hs_microondas, kg_carne_vaca, kg_carne_cerdo, kg_pollo, kg_pescado, huevos, kg_leche, kg_queso, kg_arroz, kg_pan, kg_papa)
 
 
 if submitted:
-    st.write(f"Tu huella de carbono SEMANAL es: :red[{round(huella,3)}] KgCO₂eq")
-    st.write(f"Tu huella de carbono ANUAL es: :red[{round(huella*12,3)}] KgCO₂eq")
+    st.write(f"**Tu huella de carbono SEMANAL es: :red[{round(huella,3)}] KgCO₂eq**")
+    st.write(f"**Tu huella de carbono ANUAL es: :red[{round(huella*12,3)}] KgCO₂eq**")
 
     impacto_arboles = obtener_impacto_arboles(huella)
-    st.write(f"Esto equivale a la absorción de CO2 de aproximadamente :red[{round(impacto_arboles*12,3)}] árboles al año.")
-
-    #st.write(f"Esto equivale a la absorción de CO2 de aproximadamente :red[{round(impacto_arboles,1)}] árboles.")
+    st.write(f"**Esto equivale a la absorción de CO2 de aproximadamente :red[{round(impacto_arboles*12,3)}] árboles al año.**")
 
     st.write("**:blue[Algunas de las opciones que puedes considerar para bajar tu huella de carbono pueden ser:]**")
     for mensaje in obtener_compensacion_ejemplos():
