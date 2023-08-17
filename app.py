@@ -44,9 +44,12 @@ def obtener_compensacion_ejemplos():
     ]
     return compensacion
 
+
+
 #Se pone logo
 st.set_page_config(layout="centered", page_title="Calculadora Huella de Carbono",page_icon="logo.png")
 st.title("Calculadora Huella de Carbono :earth_americas:")
+
 
 # Efecto de la huella de carbono en el medio ambiente
 st.subheader("**:blue[¿Cómo afecta la Huella de Carbono al medio ambiente?]**")
