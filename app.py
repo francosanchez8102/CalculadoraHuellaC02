@@ -84,7 +84,7 @@ with st.form("my_form"):
             kg_carne_cerdo = st.number_input("Gramos de carne de cerdo", min_value=0)
             kg_pollo = st.number_input("Gramos de pollo", min_value=0)
             kg_pescado = st.number_input("Gramos de pescado", min_value=0)
-            huevos= st.number_input("Cantidad de huevos", min_value=0.)
+            huevos= st.number_input("Cantidad de huevos", min_value=0)
             kg_leche = st.number_input("Litros de leche", min_value=0.0,format="%.2f")
             kg_queso = st.number_input("Gramos de queso", min_value=0)
             kg_arroz = st.number_input("Gramos de arroz", min_value=0)
