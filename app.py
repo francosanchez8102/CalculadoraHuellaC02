@@ -79,17 +79,17 @@ with st.form("my_form"):
         
     with st.expander("Alimentos"):
             # Elementos dentro del expander
-            st.write("En promedio, cuanta cantidad en kg comes de cada uno de estos alimentos por semana? ")
-            kg_carne_vaca = st.number_input("Kilogramos carne de vaca", min_value=0, format="%.2f")
-            kg_carne_cerdo = st.number_input("Kilogramos carne de cerdo", min_value=0,format="%.2f")
-            kg_pollo = st.number_input("Kilogramos de pollo", min_value=0,format="%.2f")
-            kg_pescado = st.number_input("Kilogramos de pescado", min_value=0,format="%.2f")
+            st.write("En promedio, cuanta cantidad en gr/l comes de cada uno de estos alimentos por semana? ")
+            kg_carne_vaca = st.number_input("Gramos de carne de vaca", min_value=0, format="%.2f")
+            kg_carne_cerdo = st.number_input("Gramos de carne de cerdo", min_value=0,format="%.2f")
+            kg_pollo = st.number_input("Gramos de pollo", min_value=0,format="%.2f")
+            kg_pescado = st.number_input("Gramos de pescado", min_value=0,format="%.2f")
             huevos= st.number_input("Cantidad de huevos", min_value=0,format="%.2f")
-            kg_leche = st.number_input("Kilogramos de leche", min_value=0,format="%.2f")
-            kg_queso = st.number_input("Kilogramos de queso", min_value=0,format="%.2f")
-            kg_arroz = st.number_input("Kilogramos de arroz", min_value=0,format="%.2f")
-            kg_pan = st.number_input("Kilogramos de pan", min_value=0,format="%.2f")
-            kg_papa = st.number_input("Kilogramos de papa", min_value=0,format="%.2f")
+            kg_leche = st.number_input("Litros de leche", min_value=0,format="%.2f")
+            kg_queso = st.number_input("Gramos de queso", min_value=0,format="%.2f")
+            kg_arroz = st.number_input("Gramos de arroz", min_value=0,format="%.2f")
+            kg_pan = st.number_input("Gramos de pan", min_value=0,format="%.2f")
+            kg_papa = st.number_input("Gramos de papa", min_value=0,format="%.2f")
 
     submitted = st.form_submit_button("Calcular")
     huella = calcula_huella(km_auto, km_moto, km_colect_die, hs_tele,hs_aire,hs_ventilador, hs_heladera,hs_lavarropa,hs_plancha,hs_horno_elect,hs_microondas, kg_carne_vaca, kg_carne_cerdo, kg_pollo, kg_pescado, huevos, kg_leche, kg_queso, kg_arroz, kg_pan, kg_papa)
