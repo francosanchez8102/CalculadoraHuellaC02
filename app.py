@@ -105,10 +105,11 @@ if submitted:
     st.write(f"**Tu huella de carbono ANUAL es: :red[{round(huella*12,3)}] KgCO₂eq**")
 
     impacto_arboles = obtener_impacto_arboles(huella)
-    st.write(f"**Esto equivale a la absorción de CO2 de aproximadamente :red[{round(impacto_arboles*12,3)}] árboles al año.**")
+    st.write(f"**Esto equivale a la absorción de CO2 de aproximadamente :red[{round(impacto_arboles*12,3)}] árboles al año. En otras palabras, se necesita un área forestal del tamaño de :red[{round(impacto_arboles*12,3)}] árboles para compensar estas emisiones anuales.**")
 
     st.write("**:blue[Algunas de las opciones que puedes considerar para bajar tu huella de carbono pueden ser:]**")
     for mensaje in obtener_compensacion_ejemplos():
        st.write(f"- {mensaje}")
     
     st.write("**:green[Recuerda que cada pequeña acción cuenta, y juntos podemos hacer la diferencia para reducir nuestra huella de carbono y contribuir a un futuro más sostenible.]**")
+    st.write("**:green[Tus elecciones diarias pueden hacer una gran diferencia ¡Sigue siendo parte del cambio hacia un futuro más verde!]**")
