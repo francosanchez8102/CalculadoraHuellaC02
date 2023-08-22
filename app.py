@@ -1,5 +1,6 @@
 import streamlit as st
 from constantes import FACTORES
+from PIL import Image
 
 lista_factores = FACTORES
 
@@ -46,9 +47,20 @@ def obtener_compensacion_ejemplos():
 
 
 
-#Se pone logo
+
+#Se configura estilo pagina
 st.set_page_config(layout="centered", page_title="Calculadora Huella de Carbono",page_icon="logo.png")
-st.title("Calculadora Huella de Carbono :earth_americas:")
+
+#Se pone logo
+#Asigno columnas para que la imagen quede centrada
+imagen = Image.open('logo.png')
+columna1, columna2, columna3=st.columns(3)
+with columna2:
+    st.image(imagen, width=100)
+
+#Titulo
+st.title(":blue[Calculadora Huella de Carbono]")
+
 
 
 # Efecto de la huella de carbono en el medio ambiente
@@ -64,9 +76,9 @@ with st.form("my_form"):
     with st.expander("Medios de transporte"):
             # Elementos dentro del expander
             st.write("En promedio, cuantos km por semana recorres utilizando cada uno de estos medios de transporte?")
-            km_auto = st.number_input("km en automóvil ", min_value=0.0, format="%.2f")
-            km_moto = st.number_input("km en moto", min_value=0.0, format="%.2f")
-            km_colect_die = st.number_input("km en colectivo", min_value=0.0, format="%.2f")
+            km_auto = st.number_input("km en automóvil :blue_car:", min_value=0.0, format="%.2f")
+            km_moto = st.number_input("km en moto :motor_scooter:", min_value=0.0, format="%.2f")
+            km_colect_die = st.number_input("km en colectivo :bus:", min_value=0.0, format="%.2f")
                     
     
     with st.expander("Electrodomesticos"):
