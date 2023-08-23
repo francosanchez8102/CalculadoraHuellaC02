@@ -120,6 +120,5 @@ if submitted:
     impacto_arboles = obtener_impacto_arboles(huella)
     st.write(f"**Esto equivale a la absorción de CO2 de aproximadamente :red[{round(impacto_arboles*12,3)}] árboles al año.**")
 
-    st.write("**:blue[Recuerda que cada elección cuenta: compartir el transporte o utilizar la bici, consumir productos locales, reducir el consumo de energía en tu hogar.
-Tus elecciones diarias pueden hacer una gran diferencia ¡Sigue siendo parte del cambio hacia un futuro más verde!]**")
+    st.write("**:blue[Recuerda que cada elección cuenta: compartir el transporte o utilizar la bici, consumir productos locales, reducir el consumo de energía en tu hogar. Tus elecciones diarias pueden hacer una gran diferencia ¡Sigue siendo parte del cambio hacia un futuro más verde!]**")
     
