@@ -75,28 +75,28 @@ with st.form("my_form"):
 
     with st.expander("Medios de transporte"):
             # Elementos dentro del expander
-            st.write("En promedio, cuantos km por semana recorres utilizando cada uno de estos medios de transporte?")
+            st.write("En promedio, ¿cuántos km por semana recorres utilizando cada uno de estos medios de transporte?")
             km_auto = st.number_input("km en automóvil :blue_car:", min_value=0.0, format="%.2f")
             km_moto = st.number_input("km en moto :motor_scooter:", min_value=0.0, format="%.2f")
             km_colect_die = st.number_input("km en colectivo :bus:", min_value=0.0, format="%.2f")
                     
     
-    with st.expander("Electrodomesticos"):
+    with st.expander("Electrodomésticos"):
             # Elementos dentro del expander
-            st.write("En promedio, cuantas hs por día utilizas cada uno de estos electrodomésticos? ")
-            hs_tele = st.number_input("Horas televisor", min_value=0.0, format="%.2f")
-            hs_aire = st.number_input("Horas aire acondicionado", min_value=0.0, format="%.2f")
-            hs_ventilador = st.number_input("Horas ventilador", min_value=0.0, format="%.2f")
+            st.write("En promedio, ¿cuántas hs por día utilizas cada uno de estos electrodomésticos? ")
+            hs_tele = st.number_input("Horas de televisor", min_value=0.0, format="%.2f")
+            hs_aire = st.number_input("Horas de aire acondicionado", min_value=0.0, format="%.2f")
+            hs_ventilador = st.number_input("Horas de ventilador", min_value=0.0, format="%.2f")
             hs_heladera = 24
-            hs_lavarropa = st.number_input("Horas lavarropa", min_value=0.0, format="%.2f")
-            hs_plancha = st.number_input("Horas plancha", min_value=0.0, format="%.2f")
-            hs_horno_elect = st.number_input("Horas horno electrico", min_value=0.0, format="%.2f")
-            hs_microondas = st.number_input("Horas microondas", min_value=0.0, format="%.2f")
+            hs_lavarropa = st.number_input("Horas de lavarropa", min_value=0.0, format="%.2f")
+            hs_plancha = st.number_input("Horas de plancha", min_value=0.0, format="%.2f")
+            hs_horno_elect = st.number_input("Horas de horno electrico", min_value=0.0, format="%.2f")
+            hs_microondas = st.number_input("Horas de microondas", min_value=0.0, format="%.2f")
 
         
     with st.expander("Alimentos"):
             # Elementos dentro del expander
-            st.write("En promedio, cuanta cantidad en gr/l comes de cada uno de estos alimentos por semana? ")
+            st.write("En promedio, ¿cuánta cantidad en gramos/litros consumís de cada uno de estos alimentos por semana? ")
             kg_carne_vaca = st.number_input("Gramos de carne de vaca", min_value=0)
             kg_carne_cerdo = st.number_input("Gramos de carne de cerdo", min_value=0)
             kg_pollo = st.number_input("Gramos de pollo", min_value=0)
@@ -113,15 +113,13 @@ with st.form("my_form"):
 
 
 if submitted:
-    st.write(f"**Tu huella de carbono SEMANAL es: :red[{round(huella,3)}] KgCO₂eq**")
-    st.write(f"**Tu huella de carbono ANUAL es: :red[{round(huella*12,3)}] KgCO₂eq**")
+    st.write(f"**¡Excelente trabajo! Has navegado a través de la calculadora de huella de carbono con éxito**")
+    st.write(f"**Tu huella de carbono SEMANAL es: :red[{round(huella,3)}] kgCO₂eq**")
+    st.write(f"**Tu huella de carbono ANUAL es: :red[{round(huella*12,3)}] kgCO₂eq**")
 
     impacto_arboles = obtener_impacto_arboles(huella)
-    st.write(f"**Esto equivale a la absorción de CO2 de aproximadamente :red[{round(impacto_arboles*12,3)}] árboles al año. En otras palabras, se necesita un área forestal del tamaño de :red[{round(impacto_arboles*12,3)}] árboles para compensar estas emisiones anuales.**")
+    st.write(f"**Esto equivale a la absorción de CO2 de aproximadamente :red[{round(impacto_arboles*12,3)}] árboles al año.**")
 
-    st.write("**:blue[Algunas de las opciones que puedes considerar para bajar tu huella de carbono pueden ser:]**")
-    for mensaje in obtener_compensacion_ejemplos():
-       st.write(f"- {mensaje}")
+    st.write("**:blue[Recuerda que cada elección cuenta: compartir el transporte o utilizar la bici, consumir productos locales, reducir el consumo de energía en tu hogar.
+Tus elecciones diarias pueden hacer una gran diferencia ¡Sigue siendo parte del cambio hacia un futuro más verde!]**")
     
-    st.write("**:green[Recuerda que cada pequeña acción cuenta, y juntos podemos hacer la diferencia para reducir nuestra huella de carbono y contribuir a un futuro más sostenible.]**")
-    st.write("**:green[Tus elecciones diarias pueden hacer una gran diferencia ¡Sigue siendo parte del cambio hacia un futuro más verde!]**")
